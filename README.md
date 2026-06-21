@@ -57,3 +57,9 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## to run the project 
+### open the cmd in the root of the project and run npm i
+### open the cmd at the sever folder and run npm i
+### in the server folder run json-server --watch dn.json to run json server
+### then in teh project run npm start / ng serve -o
