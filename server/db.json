@@ -1,0 +1,33 @@
+{
+  "tasks": [
+    {
+      "name": "finish todo list task",
+      "description": "Create a modern responsive layout for the todo app using Angular components and Tailwind CSS.",
+      "status": "In progress",
+      "summary": "Main layout complete, currently refining animations and typography.",
+      "id": "sZRwa0F1B1g"
+    },
+    {
+      "name": "manage the delete dialog",
+      "description": "mange to handle delete using Angular dialog",
+      "status": "pendding",
+      "summary": "mange to handle delete using Angular dialog",
+      "id": "5qPZgCs2dAs"
+    },
+    {
+      "name": "Manage the TODO CRUD",
+      "description": "complete the full todo list application with main CRUD Operations",
+      "status": "done",
+      "summary": "finsih it using Angular components and tailwind for styling",
+      "id": "Qbe4O6E2F70"
+    },
+    {
+      "id": "wmeXkvUkWNY",
+      "name": "test drop down list",
+      "description": "test status drop down list",
+      "status": "done",
+      "summary": "test"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

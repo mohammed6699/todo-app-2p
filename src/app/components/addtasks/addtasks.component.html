@@ -1,0 +1,77 @@
+<div appAddUpdateStyle>
+    <div class="border border-slate-700 shadow-2xl max-w-md w-full p-8 rounded-2xl backdrop-blur-sm">
+        <h2 class="text-3xl font-extrabold text-white mb-2 text-center">
+      Add New Task
+    </h2>
+    <p class="text-white text-center mb-8">
+      Feel free to add your desired task
+    </p>
+        <form (ngSubmit)="addNewTask()" [formGroup]="taskForm" #addNewForm="ngForm">
+            <div class="mb-6 flex flex-col gap-6">
+                <div>
+                <label class="block text-sm font-semibold text-white mb-2">
+                    Task Title
+                </label>
+                <input
+                    type="text"
+                    placeholder="Play football"
+                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
+                        focus:outline-none focus:border-emerald-500 transition-all duration-200"
+                    formControlName="name"/>
+                </div>
+                <div>
+                <label class="block text-sm font-semibold text-white mb-2">
+                    Description
+                </label>
+                <input
+                    type="text"
+                    placeholder="Describe your task the way you like"
+                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
+                        focus:outline-none focus:border-emerald-500 transition-all duration-200"
+                    formControlName="description"/>
+                </div>
+                <div>
+                <label class="block text-sm font-semibold text-white mb-2">
+                    Summary
+                </label>
+                <input
+                    type="text"
+                    placeholder="Summarize your task with few words"
+                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
+                        focus:outline-none focus:border-emerald-500 transition-all duration-200"
+                    formControlName="summary"/>
+                </div>
+                <div>
+                <label class="block text-sm font-semibold text-white mb-2">
+                    status
+                </label>
+                <select
+                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
+                        focus:outline-none focus:border-emerald-500 transition-all duration-200 cursor-pointer"
+                    formControlName="status">
+                    <option value="pendding" class="text-black">Pending</option>
+                    <option value="In progress" class="text-black">In progress</option>
+                    <option value="done" class="text-black">Done</option>
+                </select>
+                </div>
+            </div>
+            <div class="flex justify-around">
+                <button
+                    [disabled]="addNewForm.invalid"
+                    type="submit"
+                    class="w-auto bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold text-sm shadow-lg
+                    transition-all duration-300 mt-4 px-5"
+                >
+                Add Task
+                </button>
+                <button
+                [routerLink]="['/tasks']"
+                class="w-auto bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold text-sm shadow-lg
+                    transition-all duration-300 mt-4 px-6"
+                >
+                ← Back to Tasks
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
