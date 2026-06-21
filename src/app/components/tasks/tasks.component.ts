@@ -9,10 +9,11 @@ import { CardStyle } from '../../directives/card-style';
 import { PageStyle } from '../../directives/page-style';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from '../confirmDialog/confirmDialog.component';
+import { WordUpperPipe } from '../../pipes/word-upper-pipe';
 
 @Component({
   selector: 'app-tasks',
-  imports: [CommonModule, FormsModule, RouterLink, CardStyle, PageStyle],
+  imports: [CommonModule, FormsModule, RouterLink, CardStyle, PageStyle, WordUpperPipe],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })

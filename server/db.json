@@ -27,6 +27,20 @@
       "description": "test status drop down list",
       "status": "done",
       "summary": "test"
+    },
+    {
+      "id": "LpJfn0Vk94w",
+      "name": "manage the pipe for app",
+      "description": "MANAGE to use built in pipes and custom pipes for the project",
+      "status": "pendding",
+      "summary": "WORK on create custom pipe to set only the first word at each text to upper case"
+    },
+    {
+      "id": "cTc6L2ovKmo",
+      "name": "test the custom pipe",
+      "description": "test that custom pipe is working as expected",
+      "status": "done",
+      "summary": "check for the first char for each word is set to upper case"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

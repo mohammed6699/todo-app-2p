@@ -3,15 +3,18 @@ import { TaskModel } from '../../models/tasks.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HotToastService } from '@ngxpert/hot-toast';
 import { TaskService } from '../../services/Task.service';
+import { CommonModule, LowerCasePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { WordUpperPipe } from '../../pipes/word-upper-pipe';
 
 @Component({
   selector: 'app-tasksdetails',
-  imports: [RouterLink],
+  imports: [RouterLink, LowerCasePipe, WordUpperPipe],
   templateUrl: './tasksdetails.component.html',
   styleUrl: './tasksdetails.component.css',
 })
 export class TasksdetailsComponent implements OnInit{
-  task?: TaskModel;
+  task!: TaskModel;
   taskId!: string;
   constructor(
     private active: ActivatedRoute,
