@@ -4,10 +4,11 @@ import { HotToastService } from '@ngxpert/hot-toast';
 import { TaskService } from '../../services/Task.service';
 import { Router, RouterLink } from '@angular/router';
 import { AddUpdateStyle } from '../../directives/add-update-style';
+import { AddUpdateCardStyle } from '../../directives/add-update-card-style';
 
 @Component({
   selector: 'app-addtasks',
-  imports: [FormsModule, ReactiveFormsModule, RouterLink, AddUpdateStyle],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink, AddUpdateStyle, AddUpdateCardStyle],
   templateUrl: './addtasks.component.html',
   styleUrl: './addtasks.component.css',
 })

@@ -6,10 +6,11 @@ import { HotToastService } from '@ngxpert/hot-toast';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AddUpdateStyle } from '../../directives/add-update-style';
+import { AddUpdateCardStyle } from '../../directives/add-update-card-style';
 
 @Component({
   selector: 'app-updatetasks',
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink, AddUpdateStyle],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink, AddUpdateStyle, AddUpdateCardStyle],
   templateUrl: './updatetasks.component.html',
   styleUrl: './updatetasks.component.css',
 })

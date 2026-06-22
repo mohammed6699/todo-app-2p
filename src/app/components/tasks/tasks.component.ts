@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { TaskModel } from '../../models/tasks.model';
 import { TaskService } from '../../services/Task.service';
 import { HotToastService } from '@ngxpert/hot-toast';
@@ -47,14 +47,15 @@ export class TasksComponent implements OnInit{
       }
     })
   };
-  set searchLogic(search: string){
+  @Input() set searchLogic(search: string){
     this.searchTasks = this.tasks.filter((task) => 
       task.name.toLowerCase().includes(search.toLowerCase()))
   };
   deleteTask(id: string){
     const dialogRef = this.dialog.open(ConfirmationDialog, {
         width: '500px',
-        data: {title: 'Delete Todo', message: 'Are you sure you want to delete this item'}
+        data: {title: 'Delete Todo', message: 'Are you sure you want to delete this item'},
+        disableClose: true
       });
       dialogRef.afterClosed().subscribe((confirm: boolean) => {
         if(confirm){
