@@ -5,6 +5,7 @@ import { TasksdetailsComponent } from './components/tasksdetails/tasksdetails.co
 import { AddtasksComponent } from './components/addtasks/addtasks.component';
 import { UpdatetasksComponent } from './components/updatetasks/updatetasks.component';
 import { MainComponent } from './components/main-component/Main.component';
+import { NotFoundComponent } from './components/not-found/NotFound.component';
 
 export const routes: Routes = [
     {path: '', component: App, children: [
@@ -14,5 +15,6 @@ export const routes: Routes = [
         {path: 'tasks/:taskId', component: TasksdetailsComponent, title: 'Task Details Page'},
         {path: 'add-task', component: AddtasksComponent, title: 'Add New Task Page'},
         {path: 'update-task/:taskId', component: UpdatetasksComponent, title: 'Update Task Page'}
-    ]}
+    ]},
+    {path: '**', component: NotFoundComponent, title: 'Not Found Page'}
 ];
