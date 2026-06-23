@@ -1,13 +1,13 @@
- <div appAddUpdateStyle>
+ <div class="page">
  <!-- <div class="flex flex-wrap justify-center w-auto items-center min-h-screen bg-linear-to-r/decreasing from-indigo-500 to-teal-400"> -->
   <div class="border border-slate-700 shadow-2xl max-w-md w-full p-8 rounded-2xl backdrop-blur-sm ">
-    <h2 class="text-3xl font-extrabold text-white mb-2 text-center">
+    <h2 class="text-3xl font-extrabold text-[#03045e] mb-2 text-center">
       Update your existing task
     </h2>
     <form class="mt-4 mb-2 w-full"  (ngSubmit)="updateTaskMethod()" [formGroup]="updateTaskForm" #updateForm="ngForm">
-      <div appAddUpdateCardStyle>
+      <div class="add-update-card">
         <div>
-          <label class="block text-sm font-semibold text-white mb-2">
+          <label class="block text-sm font-semibold text-[#03045e] mb-2">
             Task Title
           </label>
           <input
@@ -17,37 +17,65 @@
                 focus:outline-none focus:border-emerald-500 transition-all duration-200"
             formControlName="name"
           />
+          @if(updateTaskForm.get('name')?.hasError('required') && updateTaskForm.get('name')?.touched){
+              <span class="text-red-500">This input is required</span>
+          }
         </div>
         <div>
-          <label class="block text-sm font-semibold text-white mb-2">
-            Description
+          <label class="block text-sm font-semibold text-[#03045e] mb-2">
+            Email
+          </label>
+          <input
+            type="email"
+            placeholder="Describe your task the way you like"
+            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-[#03045e]
+                focus:outline-none focus:border-emerald-500 transition-all duration-200"
+            formControlName="email"
+          />
+          @if(updateTaskForm.get('email')?.hasError('required') && updateTaskForm.get('email')?.touched){
+            <span class="text-red-500 pt-0.5">this input is required</span>
+          }@else if (updateTaskForm.get('email')?.errors?.['pattern']) {
+            <span>Pleaser enter a valide email</span>
+          }
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-[#03045e] mb-2">
+            Phone Number
           </label>
           <input
             type="text"
             placeholder="Describe your task the way you like"
-            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-gray-500/70
+            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-[#03045e]
                 focus:outline-none focus:border-emerald-500 transition-all duration-200"
-            formControlName="description"
+            formControlName="phone"
           />
+          @if(updateTaskForm.get('phone')?.hasError('required') && updateTaskForm.get('phone')?.touched){
+            <span class="text-red-500">this input is required</span>
+          }@else if (updateTaskForm.get('phone')?.errors?.['pattern']) {
+            <span class="text-red-500 pt-0.5">Pleaser enter a valide phone number</span>
+          }
         </div>
         <div>
-          <label class="block text-sm font-semibold text-white mb-2">
+          <label class="block text-sm font-semibold text-[#03045e] mb-2">
             Summary
           </label>
           <input
             type="text"
             placeholder="Summarize your task with few words"
-            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-gray-500/70
+            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-[#03045e]
                 focus:outline-none focus:border-emerald-500 transition-all duration-200"
             formControlName="summary"
           />
+          @if(updateTaskForm.get('summary')?.hasError('required') && updateTaskForm.get('summary')?.touched){
+            <span class="text-red-500">This input is required</span>
+          }
         </div>
         <div>
-          <label class="block text-sm font-semibold text-white mb-2">
+          <label class="block text-sm font-semibold text-[#03045e] mb-2">
             Progress
           </label>
           <select
-            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-gray-500/70
+            class="w-full bg-gray-100 border border-slate-700 rounded-lg px-4 py-3 font-bold text-[#03045e]
                 focus:outline-none focus:border-emerald-500 transition-all duration-200 cursor-pointer"
             formControlName="status"
           >
@@ -61,17 +89,18 @@
         <button
       [disabled]="updateTaskForm.invalid"
         type="submit"
-        class="w-auto bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold text-sm shadow-lg
+        class="w-auto bg-[#caf0f8] border border-slate-700 text-[#03045e] py-3 rounded-lg font-semibold text-sm shadow-lg
             transition-all duration-300 mt-4 px-5"
       >
         update task
       </button>
       <button
-      [routerLink]="['/tasks']"
-      class="w-auto bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold text-sm shadow-lg
+      (click)="onCancel()"
+      type="button"
+      class="w-auto bg-[#caf0f8] border border-slate-700 text-[#03045e] py-3 rounded-lg font-semibold text-sm shadow-lg
             transition-all duration-300 mt-4 px-6"
       >
-      ← Back to Tasks
+      cancel update
     </button>
       </div>
     </form>

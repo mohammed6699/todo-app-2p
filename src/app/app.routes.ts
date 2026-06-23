@@ -1,20 +1,44 @@
 import { Routes } from '@angular/router';
-import { App } from './app';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TasksdetailsComponent } from './components/tasksdetails/tasksdetails.component';
-import { AddtasksComponent } from './components/addtasks/addtasks.component';
-import { UpdatetasksComponent } from './components/updatetasks/updatetasks.component';
-import { MainComponent } from './components/main-component/Main.component';
 import { NotFoundComponent } from './components/not-found/NotFound.component';
+import { LoginComponent } from './components/loginComponent/Login.component';
+import { authGuard } from './auth/auth-guard';
+import { MainLayoutComponent } from './layout/main.layout';
+import { EmptyLayoutComponent } from './layout/EmptyLayout/Empty.layout';
 
 export const routes: Routes = [
-    {path: '', component: App, children: [
-        {path: '', redirectTo: 'tasks', pathMatch: 'full'},
-        // {path: 'tasks', component: TasksComponent, title: 'Tasks Page'},
-        {path: 'tasks', component: MainComponent, title: 'Tasks Page'},
-        {path: 'tasks/:taskId', component: TasksdetailsComponent, title: 'Task Details Page'},
-        {path: 'add-task', component: AddtasksComponent, title: 'Add New Task Page'},
-        {path: 'update-task/:taskId', component: UpdatetasksComponent, title: 'Update Task Page'}
-    ]},
-    {path: '**', component: NotFoundComponent, title: 'Not Found Page'}
+    {
+        path: '',
+        component: EmptyLayoutComponent,
+        children: [
+            {path: 'login', component:LoginComponent, title: 'login page'},
+            // 
+        ]
+    },
+    {
+        path: '',
+        canActivate: [authGuard],
+        component: MainLayoutComponent,
+        children: [
+            {
+        path: 'home',
+        loadComponent: () => import('./components/home-component/Home.component').then(task => task.HomeComponent)
+    },
+    {
+        path: 'tasks', 
+        loadComponent: () => import('./components/main-component/Main.component').then(task => task.MainComponent)
+    },
+    {
+        path: 'details/:taskId',
+        loadComponent: () => import('./components/tasksdetails/tasksdetails.component').then(task => task.TasksdetailsComponent)
+    },
+    {
+        path: 'add',
+        loadComponent: () => import('./components/addtasks/addtasks.component').then(task => task.AddtasksComponent)
+    },
+    {
+        path: 'update/:taskId',
+        loadComponent: () => import('./components/updatetasks/updatetasks.component').then(task => task.UpdatetasksComponent)
+    }],
+    },
+    {path: '**', component: NotFoundComponent, title: 'Not Found Page'},
 ];

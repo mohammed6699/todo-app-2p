@@ -1,73 +1,70 @@
-<section appPageStyle>
-    <!-- Search Bar -->
-    <div class="flex flex-col md:flex-row justify-center items-baseline gap-4 mb-8 w-full px-4">
+<section class="min-h-screen bg-[#caf0f8]">
+    <!-- filter -->
+    <div class="flex flex-col md:flex-row justify-center items-baseline mb-8 w-full">
     <select
         [(ngModel)]="filterTask"
         (ngModelChange)="filterMethod()"
         type="text"
         placeholder="filter tasks by status..."
-        class="bg-slate-900/70 text-gray-100 border border-slate-700 rounded-2xl px-4 py-3 focus:outline-none
-      focus:ring-2 focus:ring-emerald-500 shadow-md cursor-pointer"
+        class="bg-[#ade8f4] text-[#03045e] border border-slate-700 rounded-2xl px-4 py-3 focus:outline-none
+      focus:ring-2 focus:ring-emerald-500 shadow-md cursor-pointer "
     >
     <option value="all">all</option>
     <option value="done">Done</option>
     <option value="In progress">In Progress</option>
     <option value="pendding">Pending</option>
     </select>
-    
     </div>
-    <div class="flex justify-end mb-2 mr-8">
+ <div class="flex justify-end mb-2 mr-8">
             <button
         (click)="navigateToAdd()"
-        class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-sm font-semibold
+        class="bg-[#ade8f4] text-[#03045e] border border-slate-700 px-4 py-2 rounded-xl text-sm font-semibold
             shadow-md hover:shadow-emerald-500/25 transition-all duration-200"
         >
         Add New Task
         </button>
     </div>
-    <div
-    class="w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 px-6 py-10"
-    >
-    @for (task of searchTasks; track task.id) {
-        
-        <div
-        appCardStyle
-        >
-        <div class="p-6 flex flex-col justify-between h-64">
-            <h3
-            class="text-2xl font-semibold mb-2 text-white "
-            >
-            {{ task.name | wordUpper}}
-            </h3>
-
-            <p class="text-sm text-white mb-4 line-clamp-3">
-            {{ task.description | lowercase}}
-            </p>
-
-            <div class="flex justify-between items-center text-white text-sm mb-4">
-            <h4 class="font-medium text-White">Status:</h4>
-            <p>{{ task.status | lowercase}}</p>
-            </div>
-
-            <div class="flex justify-between sm:flex gap-5">
-            <button
-                [routerLink]="['/tasks', task.id]"
-                class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-sm font-semibold
-                    shadow-md hover:shadow-emerald-500/25 transition-all duration-200"
-            >
-                View Details →
-            </button>
-            <button 
-            (click)="deleteTask(task.id)"
-            class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-sm font-semibold
-                    shadow-md hover:shadow-emerald-500/25 transition-all duration-200">
-                delete task
-            </button>
-            </div>
-        </div>
-        </div>
+    <div class="flex justify-end mb-2 mr-8">
+        @for (task of searchTasks; track task.id) {
+       
     } @empty {
-        <p class="text-red-400 font-bold text-center flex justify-center">Please check your server</p>
+        <p class="text-[#03045e] font-bold text-center flex justify-center">Please check your server</p>
     }
     </div>
+    <div class="flex flex-col">
+    <div class="overflow-x-auto">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+                <table class="min-w-full">
+                    <thead class="border-b">
+                        <tr>
+                            <th scope="col" class="text-sm font-medium text-[#03045e] px-6 py-4 text-left">#</th>
+                            <th scope="col" class="text-sm font-medium text-[#03045e] px-6 py-4 text-left">Name</th>
+                            <th scope="col" class="text-sm font-medium text-[#03045e] px-6 py-4 text-left">Email</th>
+                            <th scope="col" class="text-sm font-medium text-[#03045e] px-6 py-4 text-left">Status</th>
+                            <th scope="col" class="text-sm font-medium text-[#03045e] px-6 py-4 text-left">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (task of searchTasks; track task.id) {
+                            <tr class="border-b">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#03045e]">#</td>
+                            <td class="text-sm text-[#03045e] font-light px-6 py-4 whitespace-nowrap">{{task.name}}</td>
+                            <td class="text-sm text-[#03045e] font-light px-6 py-4 whitespace-nowrap">{{task.email}}</td>
+                            <td class="text-sm text-[#03045e] font-light px-6 py-4 whitespace-nowrap">{{task.status}}</td>
+                            <td class="flex text-sm text-[#03045e] font-light py-4 gap-2">
+                                <button [routerLink]="['/details', task.id]" class="cursor-pointer"><i class="fa-solid fa-eye"></i></button>
+                                <button (click)="editTasks(task.id)" class="cursor-pointer"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button (click)="deleteTask(task.id)" class="cursor-pointer"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    } @empty {
+                        <p class="text-red-400 font-bold text-center flex justify-center">Please check your server</p>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 </section>

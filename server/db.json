@@ -1,46 +1,225 @@
 {
   "tasks": [
     {
-      "name": "finish todo list task",
-      "description": "Create a modern responsive layout for the todo app using Angular components and Tailwind CSS.",
+      "id": "wEb-iFol3fU",
+      "name": "manage table preview",
+      "email": "Ahmed.refaat@gmail.com",
+      "phone": 1123392044,
+      "status": "pendding",
+      "summary": "mange to handle delete using Angular dialog"
+    },
+    {
+      "id": "d1PtglT-FJc",
+      "name": "manage the Table view",
+      "email": "ali.refaat@gmail.com",
+      "phone": 10509952879,
+      "status": "done",
+      "summary": "mange to handle delete using Angular dialog"
+    },
+    {
+      "id": "Z-mfApfR2Kg",
+      "name": "add table",
+      "email": "mohamedali@gmail.com",
+      "phone": "01124587452",
       "status": "In progress",
-      "summary": "Main layout complete, currently refining animations and typography.",
-      "id": "sZRwa0F1B1g"
+      "summary": "mange to handle delete using Angular dialog"
+    }
+  ],
+  "user": [
+    {
+      "email": "mohammed.refaat@gmail",
+      "password": "aaaaa1254@@55",
+      "id": "Y4aUkurENhI"
     },
     {
-      "name": "manage the delete dialog",
-      "description": "mange to handle delete using Angular dialog",
-      "status": "pendding",
-      "summary": "mange to handle delete using Angular dialog",
-      "id": "5qPZgCs2dAs"
+      "email": "BAdmin",
+      "password": "admin123",
+      "id": "VajvaR3Q6ZM"
     },
     {
-      "name": "Manage the TODO CRUD",
-      "description": "complete the full todo list application with main CRUD Operations",
-      "status": "done",
-      "summary": "finsih it using Angular components and tailwind for styling",
-      "id": "Qbe4O6E2F70"
+      "email": "BAdmin",
+      "password": "",
+      "id": "wcCXqlmYgFg"
     },
     {
-      "id": "wmeXkvUkWNY",
-      "name": "test drop down list",
-      "description": "test status drop down list",
-      "status": "done",
-      "summary": "test"
+      "email": "BAdmin",
+      "password": "",
+      "id": "NpfDysN4_C0"
     },
     {
-      "id": "LpJfn0Vk94w",
-      "name": "manage the pipe for app",
-      "description": "MANAGE to use built in pipes and custom pipes for the project",
-      "status": "pendding",
-      "summary": "WORK on create custom pipe to set only the first word at each text to upper case"
+      "email": "BAdmin",
+      "password": "",
+      "id": "NBMnXkdKmY4"
     },
     {
-      "id": "cTc6L2ovKmo",
-      "name": "test the custom pipe",
-      "description": "test that custom pipe is working as expected",
-      "status": "done",
-      "summary": "check for the first char for each word is set to upper case"
+      "email": "BAdmin",
+      "password": "",
+      "id": "eakB3CBGSAQ"
+    },
+    {
+      "email": "BAdmin",
+      "password": "",
+      "id": "74xUTvsNMqk"
+    },
+    {
+      "email": "BAdmin",
+      "password": "",
+      "id": "dojZlJ9y3RQ"
+    },
+    {
+      "email": "BAdmin",
+      "password": "",
+      "id": "s3AZryXCgtI"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "cHoBlSruJaQ"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "5YRMLwNTIAk"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "cqg266VpRlc"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "AtkwMiVw-d8"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "OYw94eNbqLs"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "-OwVscsH1Ws"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "T0NXpbCdTY8"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "M5bMsvUqWvI"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "YXE4OzVT_cA"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "WPpFedpCwRM"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "bfKAj3lpmcc"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "iNoEfZh3yII"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "Lu67WgHZwJw"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "xBoZ-uYWSHY"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "cHqQKNz2ENs"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "1_9KoGyQCKA"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "rfKAP3bsLQY"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "RZ9Hb4caax4"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "j9Ya-YJhXgc"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "RE4y48vo2Hk"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "3e-GtM7iAp8"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "a23zch_swso"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "Gil9suoF_-8"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "pOzmlqn-G6Y"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "KhFE_5Z0MvQ"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "4ANalMUAStE"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "YFTb3VMP7ss"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "TCWEwGhq0QM"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "rpsD0fUcd_s"
+    },
+    {
+      "email": "mohammed.refaat@gmail.com",
+      "password": "mohamed22#$2255",
+      "id": "lB_TJW678uU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

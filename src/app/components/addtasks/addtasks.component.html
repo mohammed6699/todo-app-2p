@@ -1,53 +1,76 @@
-<div appAddUpdateStyle>
+<div class="page">
     <div class="border border-slate-700 shadow-2xl max-w-md w-full p-8 rounded-2xl backdrop-blur-sm">
-        <h2 class="text-3xl font-extrabold text-white mb-2 text-center">
+        <h2 class="text-3xl font-extrabold text-[#03045e] mb-2 text-center">
       Add New Task
     </h2>
-    <p class="text-white text-center mb-8">
+    <p class="text-[#03045e] text-center mb-8">
       Feel free to add your desired task
     </p>
         <form (ngSubmit)="addNewTask()" [formGroup]="taskForm" #addNewForm="ngForm">
-            <div appAddUpdateCardStyle>
+            <div class="add-update-card">
                 <div>
-                <label class="block text-sm font-semibold text-white mb-2">
+                <label class="text-label">
                     Task Title
                 </label>
                 <input
                     type="text"
                     placeholder="Play football"
-                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
-                        focus:outline-none focus:border-emerald-500 transition-all duration-200"
+                    class="input-label"
                     formControlName="name"/>
+                    @if(taskForm.get('name')?.hasError('required') && taskForm.get('name')?.touched){
+                        <span class="text-red-500">This input is required</span>
+                     }
                 </div>
                 <div>
-                <label class="block text-sm font-semibold text-white mb-2">
-                    Description
+                    <label class="text-label">
+                        Email
+                    </label>
+                    <input
+                        type="email"
+                        placeholder="please enter your email..."
+                        class="input-label"
+                        formControlName="email"/>
+                     @if(taskForm.get('email')?.hasError('required') && taskForm.get('email')?.touched){
+                        <span class="text-red-500 pt-0.5">this input is required</span>
+                     }@else if (taskForm.get('email')?.errors?.['pattern']) {
+                        <span>Pleaser enter a valide email</span>
+                     }
+                </div>
+                <div>
+                <label class="text-label">
+                    Phone Number
                 </label>
                 <input
-                    type="text"
-                    placeholder="Describe your task the way you like"
-                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
-                        focus:outline-none focus:border-emerald-500 transition-all duration-200"
-                    formControlName="description"/>
+                    type="number"
+                    placeholder="Enter Your Phone Number...."
+                    class="input-label"
+                    formControlName="phone"/>
+                     @if(taskForm.get('phone')?.hasError('required') && taskForm.get('phone')?.touched){
+                        <span class="text-red-500">this input is required</span>
+                     }@else if (taskForm.get('phone')?.errors?.['pattern']) {
+                        <span class="text-red-500 pt-0.5">Pleaser enter a valide phone number</span>
+                     }
                 </div>
                 <div>
-                <label class="block text-sm font-semibold text-white mb-2">
+                <label class="text-label">
                     Summary
                 </label>
                 <input
                     type="text"
                     placeholder="Summarize your task with few words"
-                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
-                        focus:outline-none focus:border-emerald-500 transition-all duration-200"
+                    class="input-label"
                     formControlName="summary"/>
+                     @if(taskForm.get('summary')?.hasError('required') && taskForm.get('summary')?.touched){
+                        <span class="text-red-500">This input is required</span>
+                     }
                 </div>
                 <div>
-                <label class="block text-sm font-semibold text-white mb-2">
+                <label class="text-label">
                     status
                 </label>
                 <select
-                    class="w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
-                        focus:outline-none focus:border-emerald-500 transition-all duration-200 cursor-pointer"
+                    class="w-full border border-slate-700 rounded-lg px-4 py-3 font-bold text-black
+                        focus:outline-none transition-all duration-200 cursor-pointer"
                     formControlName="status">
                     <option value="pendding" class="text-black">Pending</option>
                     <option value="In progress" class="text-black">In progress</option>
@@ -59,17 +82,17 @@
                 <button
                     [disabled]="addNewForm.invalid"
                     type="submit"
-                    class="w-auto bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold text-sm shadow-lg
+                    class="w-auto bg-[#ade8f4] text-[#03045e] py-3 rounded-lg font-semibold text-sm shadow-lg
                     transition-all duration-300 mt-4 px-5"
                 >
                 Add Task
                 </button>
                 <button
                 [routerLink]="['/tasks']"
-                class="w-auto bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold text-sm shadow-lg
+                class="w-auto bg-[#ade8f4] text-[#03045e] py-3 rounded-lg font-semibold text-sm shadow-lg
                     transition-all duration-300 mt-4 px-6"
                 >
-                ← Back to Tasks
+                 Back to Tasks
                 </button>
             </div>
         </form>

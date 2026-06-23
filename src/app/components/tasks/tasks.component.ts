@@ -3,17 +3,15 @@ import { TaskModel } from '../../models/tasks.model';
 import { TaskService } from '../../services/Task.service';
 import { HotToastService } from '@ngxpert/hot-toast';
 import { Router, RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CardStyle } from '../../directives/card-style';
-import { PageStyle } from '../../directives/page-style';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from '../confirmDialog/confirmDialog.component';
-import { WordUpperPipe } from '../../pipes/word-upper-pipe';
+import { UpdatetasksComponent } from '../updatetasks/updatetasks.component';
 
 @Component({
   selector: 'app-tasks',
-  imports: [CommonModule, FormsModule, RouterLink, CardStyle, PageStyle, WordUpperPipe],
+  imports: [CommonModule, FormsModule, RouterLink, TitleCasePipe],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
@@ -31,9 +29,9 @@ export class TasksComponent implements OnInit{
     private dialog: MatDialog
   ){}
   ngOnInit(): void {
-    this.getTaksList()
+    this.getTasksList()
   }
-  getTaksList(){
+  getTasksList(){
     this.tasksService.getAllTasks().subscribe({
       next:(data) => {
         this.tasks = data;
@@ -48,7 +46,7 @@ export class TasksComponent implements OnInit{
     })
   };
   @Input() set searchLogic(search: string){
-    this.searchTasks = this.tasks.filter((task) => 
+    this.searchTasks = this.tasks?.filter((task) => 
       task.name.toLowerCase().includes(search.toLowerCase()))
   };
   deleteTask(id: string){
@@ -76,6 +74,19 @@ export class TasksComponent implements OnInit{
       })
     
   };
+  editTasks(id: string){
+      const editDialog = this.dialog.open(UpdatetasksComponent, {
+        width: '800px',
+        height: '800px',
+        disableClose: true,
+        data: { taskId: id }
+      });
+      editDialog.afterClosed().subscribe(result => {
+        if(result === true) {
+          this.getTasksList()
+        }
+      })
+  }
   filterMethod(){
     this.searchTasks = this.tasks.filter(task => {
       const matchSearch = task.name.toLowerCase().includes(this.searchTerm.toLowerCase());
@@ -85,10 +96,6 @@ export class TasksComponent implements OnInit{
   }
   // navigate to add page
   navigateToAdd(){
-    this.router.navigate(['/add-task'])
-  }
-  // navigate to details page
-  navigateToDetails(){
-    this.router.navigate(['tasks', this.taskId])
+    this.router.navigate(['/add'])
   }
 }

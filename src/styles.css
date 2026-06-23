@@ -3,3 +3,15 @@
 @import 'tailwindcss';
 @import '@ngxpert/hot-toast/styles.css';
 
+.page {
+    @apply flex flex-wrap justify-center w-auto items-center min-h-full bg-[#caf0f8];
+}
+.add-update-card {
+    @apply mb-6 flex flex-col gap-6
+}
+.text-label{
+    @apply block text-sm font-semibold text-black mb-2
+}
+.input-label{
+    @apply w-full bg-gray-100/20 border border-slate-700 rounded-lg px-4 py-3 font-bold text-black focus:outline-none focus:border-emerald-500 transition-all duration-200
+}

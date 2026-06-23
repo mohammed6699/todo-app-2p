@@ -1,0 +1,32 @@
+<header
+    class=" top-0 z-30 mx-auto w-full border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl">
+    <div class="px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex shrink-0">
+                <button aria-current="page" class="flex items-center cursor-pointer" [routerLink]="['/']">
+                    <p class="">My Todo</p>
+                </button>
+            </div>
+            <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
+                <button [routerLink]="['/home']"
+                    class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900 cursor-pointer"
+                    >home</button>
+                <button [routerLink]="['/tasks']"class="inline-block cursor-pointer rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
+                    >tasks</button>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+                
+                <button class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                    [routerLink]="['/login']"
+                    [hidden]="isUserLogged"
+                    >Login</button>
+                    <button class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        (click)="deleteUser()"
+                        [hidden]="isUserLogged"
+                    >
+                        logout
+                    </button>
+            </div>
+        </div>
+    </div>
+</header>

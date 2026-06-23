@@ -3,13 +3,12 @@ import { TaskModel } from '../../models/tasks.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HotToastService } from '@ngxpert/hot-toast';
 import { TaskService } from '../../services/Task.service';
-import { CommonModule, LowerCasePipe } from '@angular/common';
+import { CommonModule, LowerCasePipe, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { WordUpperPipe } from '../../pipes/word-upper-pipe';
 
 @Component({
   selector: 'app-tasksdetails',
-  imports: [RouterLink, LowerCasePipe, WordUpperPipe],
+  imports: [RouterLink, LowerCasePipe, TitleCasePipe],
   templateUrl: './tasksdetails.component.html',
   styleUrl: './tasksdetails.component.css',
 })

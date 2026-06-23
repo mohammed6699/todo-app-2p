@@ -3,17 +3,18 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { HotToastService } from '@ngxpert/hot-toast';
 import { TaskService } from '../../services/Task.service';
 import { Router, RouterLink } from '@angular/router';
-import { AddUpdateStyle } from '../../directives/add-update-style';
-import { AddUpdateCardStyle } from '../../directives/add-update-card-style';
 
 @Component({
   selector: 'app-addtasks',
-  imports: [FormsModule, ReactiveFormsModule, RouterLink, AddUpdateStyle, AddUpdateCardStyle],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink],
   templateUrl: './addtasks.component.html',
   styleUrl: './addtasks.component.css',
 })
 export class AddtasksComponent {
   taskForm!: FormGroup
+  private phoneRegex = '^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$';
+  private emailRegex = '[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+'
+  maxPhoneLength: number = 11;
   constructor(
     private cdr: ChangeDetectorRef,
     private toast: HotToastService,
@@ -21,8 +22,9 @@ export class AddtasksComponent {
     private router: Router
   ){
     this.taskForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(this.emailRegex)]),
+      phone: new FormControl('', [Validators.required, Validators.pattern(this.phoneRegex)]),
       status: new FormControl('pendding', Validators.required),
       summary: new FormControl('', Validators.required)
     })

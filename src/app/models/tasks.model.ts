@@ -1,7 +1,8 @@
 export interface TaskModel{
     id: string,
     name: string,
-    description: string,
+    email: string,
     status: string,
+    phone: number,
     summary: string
 }
