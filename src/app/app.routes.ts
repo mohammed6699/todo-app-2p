@@ -14,7 +14,6 @@ export const routes: Routes = [
     {
         path: '',
         component: EmptyLayoutComponent,
-        pathMatch: 'full',
         children: [
             {path: 'login', component:LoginComponent, title: 'login page'},
         ]
