@@ -1,15 +1,15 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TaskModel } from '../../models/tasks.model';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskService } from '../../services/Task.service';
 import { HotToastService } from '@ngxpert/hot-toast';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-updatetasks',
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './updatetasks.component.html',
   styleUrl: './updatetasks.component.css',
 })
@@ -30,15 +30,7 @@ export class UpdatetasksComponent implements OnInit{
     private toast: HotToastService,
     private route: ActivatedRoute,
     private router: Router
-  ){
-    this.updateTaskForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(this.emailRegex)]),
-      phone: new FormControl('', [Validators.required, Validators.pattern(this.phoneRegex)]),
-      status: new FormControl('pendding', Validators.required),
-      summary: new FormControl('', Validators.required)
-    })
-  }
+  ){}
   ngOnInit(): void {
       const id = this.data?.taskId;
       if(id){
@@ -52,6 +44,16 @@ export class UpdatetasksComponent implements OnInit{
           }
         })
       }
+      this.updateForm();
+  }
+  updateForm(){
+    this.updateTaskForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(this.emailRegex)]),
+      phone: new FormControl('', [Validators.required, Validators.pattern(this.phoneRegex)]),
+      status: new FormControl('pendding', Validators.required),
+      summary: new FormControl('', Validators.required)
+    })
   }
   loadTaskDetails(id: string){
     this.currentId = id

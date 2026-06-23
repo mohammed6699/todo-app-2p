@@ -3,7 +3,7 @@ import { TaskModel } from '../../models/tasks.model';
 import { TaskService } from '../../services/Task.service';
 import { HotToastService } from '@ngxpert/hot-toast';
 import { Router, RouterLink } from '@angular/router';
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from '../confirmDialog/confirmDialog.component';
@@ -11,7 +11,7 @@ import { UpdatetasksComponent } from '../updatetasks/updatetasks.component';
 
 @Component({
   selector: 'app-tasks',
-  imports: [CommonModule, FormsModule, RouterLink, TitleCasePipe],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })

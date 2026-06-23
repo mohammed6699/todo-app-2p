@@ -6,12 +6,17 @@ import { MainLayoutComponent } from './layout/main.layout';
 import { EmptyLayoutComponent } from './layout/EmptyLayout/Empty.layout';
 
 export const routes: Routes = [
+    { 
+        path: '', 
+        redirectTo: 'home', 
+        pathMatch: 'full' 
+    },
     {
         path: '',
         component: EmptyLayoutComponent,
+        pathMatch: 'full',
         children: [
             {path: 'login', component:LoginComponent, title: 'login page'},
-            // 
         ]
     },
     {
@@ -20,8 +25,8 @@ export const routes: Routes = [
         component: MainLayoutComponent,
         children: [
             {
-        path: 'home',
-        loadComponent: () => import('./components/home-component/Home.component').then(task => task.HomeComponent)
+                path: 'home',
+                loadComponent: () => import('./components/home-component/Home.component').then(task => task.HomeComponent)
     },
     {
         path: 'tasks', 
